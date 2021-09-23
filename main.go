@@ -114,6 +114,8 @@ func idToEthConf(id uint64, conf *config.Config) *config.EthConfig {
 		return &conf.OKConfig
 	case conf.BorConfig.SideChainId:
 		return &conf.BorConfig
+	case conf.PaletteConfig.SideChainId:
+		return &conf.PaletteConfig
 	default:
 		panic(fmt.Sprintf("unkown chain id:%d", id))
 	}
@@ -174,6 +176,7 @@ func main() {
 		conf.EthConfig.SideChainId,
 		conf.OKConfig.SideChainId,
 		conf.BorConfig.SideChainId,
+		conf.PaletteConfig.SideChainId,
 	}
 
 	ethToPolyChs := make(map[uint64]chan string)
